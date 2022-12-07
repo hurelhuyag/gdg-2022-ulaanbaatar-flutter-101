@@ -42,6 +42,7 @@ class HomePage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final int columnCount = constraints.maxWidth ~/ 200;
+        debugPrint("maxWidth: ${constraints.maxWidth}, column count: $columnCount");
         final todosCubit = context.watch<TodosCubit>();
         if (todosCubit.state is TodosInitial) {
           return const Center(
@@ -90,7 +91,8 @@ class HomePage extends StatelessWidget {
 
   Widget buildStaggeredGridView(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      final int columnCount = constraints.maxWidth ~/ 200;
+      final int columnCount = constraints.maxWidth ~/ 195;
+      debugPrint("maxWidth: ${constraints.maxWidth}, column count: $columnCount");
       final todosCubit = context.watch<TodosCubit>();
       final state = todosCubit.state;
       if (state is TodosInitial) {
